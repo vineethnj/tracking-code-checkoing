@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to TaskFlow — you're all set!</title>
+  <title>Order confirmed — TaskFlow Pro</title>
 
   <!-- ZEPHRA TRACKING SNIPPET (same on every page).
-       Landing on THIS page = the "Sign-up" conversion.
-       In the Zephra wizard map:  Sign-up  →  lands on a page  →  (the path shown below) -->
+       Landing on THIS page = the "Purchase" conversion.
+       In the Zephra wizard map:  Purchase  →  lands on a page  →  (the path shown below) -->
   <script src="https://zephraai.com/sdk.js?cid=cli_Lu6h_2nI1kc&consent=auto" async></script>
 
   <style>
@@ -21,6 +21,11 @@
              display: grid; place-items: center; font-size: 2.4rem; margin: 0 auto 22px; }
     h1 { font-size: 1.7rem; letter-spacing: -.02em; margin-bottom: 10px; }
     p { color: var(--muted); margin-bottom: 8px; }
+    .receipt { margin: 22px 0 4px; padding: 16px 18px; background: #f2f6f9; border: 1px solid var(--line);
+               border-radius: 11px; text-align: left; font-size: .9rem; }
+    .receipt div { display: flex; justify-content: space-between; padding: 5px 0; }
+    .receipt .lbl { color: var(--muted); }
+    .receipt .total { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 10px; font-weight: 800; }
     .btn { display: inline-block; margin-top: 22px; border: none; cursor: pointer; font-weight: 700;
            border-radius: 9px; padding: 13px 26px; font-size: .98rem; background: var(--teal); color: var(--ink); }
     .hint { margin-top: 30px; padding: 16px 18px; background: #f2f6f9; border: 1px dashed #c9d5df;
@@ -33,24 +38,30 @@
 <body>
   <div class="card">
     <div class="check">✓</div>
-    <h1>You're all set! 🎉</h1>
-    <p>Your TaskFlow account has been created.</p>
-    <p>We've sent a confirmation to your email.</p>
+    <h1>Order confirmed! 🎉</h1>
+    <p>Thank you for your purchase — TaskFlow Pro is now active.</p>
+    <p>We've emailed your receipt and invoice.</p>
+
+    <div class="receipt">
+      <div><span class="lbl">TaskFlow Pro — Monthly</span><span>₹500</span></div>
+      <div class="total"><span>Total paid</span><span>₹500</span></div>
+    </div>
+
     <a href="index.html" class="btn">Go to your dashboard</a>
 
     <!-- This box exists only to make the Zephra test easy: it shows you the EXACT
          path to enter in the wizard. Delete it for a real site. -->
     <div class="hint">
-      <b>📌 Zephra test — map your Sign-up conversion to this page:</b><br />
-      In the wizard choose <b>Sign-up → They land on a page</b> and paste exactly this:
-      <br /><code id="thePath">/welcome.html</code>
+      <b>📌 Zephra test — map your Purchase conversion to this page:</b><br />
+      In the wizard choose <b>Purchase → They land on a page</b> and paste exactly this:
+      <br /><code id="thePath">/order-confirmed.html</code>
     </div>
   </div>
 
   <script>
     // Show the real path of THIS page so you paste the correct value into the
-    // wizard — works whether the site is at yoursite.com/welcome.html or at
-    // username.github.io/your-repo/welcome.html (GitHub Pages sub-path).
+    // wizard — works whether the site is at yoursite.com/order-confirmed.html or at
+    // username.github.io/your-repo/order-confirmed.html (GitHub Pages sub-path).
     document.getElementById('thePath').textContent = window.location.pathname;
   </script>
 </body>

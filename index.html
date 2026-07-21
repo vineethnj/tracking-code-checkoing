@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TaskFlow — Simple project management for small teams</title>
+  <title>TaskFlow Pro — Upgrade your workspace</title>
 
   <!-- ══════════════════════════════════════════════════════════════════════
        ZEPHRA TRACKING SNIPPET — installed on every page.
@@ -55,6 +55,21 @@
     .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
     .card p { color: var(--muted); font-size: .93rem; }
 
+    /* Pricing / buy card */
+    .price-band { padding: 80px 0; }
+    .price-card { max-width: 440px; margin: 0 auto; background: #fff; border: 1px solid var(--line);
+                  border-radius: 18px; padding: 40px 36px; text-align: center;
+                  box-shadow: 0 12px 44px rgba(15,25,35,.07); }
+    .price-card .tag { display:inline-block; background:#eef7f4; color:#036; font-size:.78rem; font-weight:700;
+                       padding:5px 12px; border-radius:999px; margin-bottom:18px; letter-spacing:.03em; }
+    .price-card h2 { font-size: 1.5rem; letter-spacing: -.02em; margin-bottom: 6px; }
+    .price-card .amount { font-size: 2.8rem; font-weight: 800; letter-spacing: -.03em; margin: 14px 0 4px; }
+    .price-card .amount small { font-size: 1rem; font-weight: 600; color: var(--muted); }
+    .price-card ul { list-style: none; text-align: left; margin: 24px 0 8px; }
+    .price-card li { color: #33475a; font-size: .95rem; padding: 8px 0 8px 28px; position: relative; }
+    .price-card li::before { content: "✓"; color: var(--teal); font-weight: 800; position: absolute; left: 4px; }
+    .price-card .note { color: var(--muted); font-size: .84rem; margin-top: 14px; }
+
     .cta-band { padding: 80px 0; text-align: center; }
     .cta-band h2 { font-size: 2.1rem; letter-spacing: -.02em; margin-bottom: 14px; }
     .cta-band p { color: var(--muted); margin-bottom: 28px; }
@@ -73,7 +88,7 @@
           <a href="index.html#features">Features</a>
           <a href="index.html#pricing">Pricing</a>
           <a href="index.html">Customers</a>
-          <a href="signup.html" class="btn btn-primary">Sign up free</a>
+          <a href="checkout.html" class="btn btn-primary">Buy Pro</a>
         </div>
       </nav>
     </div>
@@ -83,11 +98,11 @@
     <section class="hero">
       <div class="wrap">
         <span class="pill">✦ New: automations for recurring tasks</span>
-        <h1>Project management<br />that stays out of your way.</h1>
-        <p>TaskFlow helps small teams plan, track and ship work without the busywork.
-           Boards, timelines and automations in one clean workspace.</p>
+        <h1>Do more with<br />TaskFlow Pro.</h1>
+        <p>Unlock unlimited boards, advanced automations and priority support.
+           One simple plan for teams that ship — upgrade in under a minute.</p>
         <div class="hero-cta">
-          <a href="signup.html" class="btn btn-primary btn-lg">Start free — Sign up</a>
+          <a href="checkout.html" class="btn btn-primary btn-lg">Buy TaskFlow Pro — ₹500</a>
           <button class="btn btn-ghost btn-lg" onclick="alert('Demo video coming soon!')">Watch demo</button>
         </div>
         <div class="logos">
@@ -98,30 +113,48 @@
 
     <section class="features" id="features">
       <div class="wrap">
-        <h2>Everything your team needs</h2>
+        <h2>Everything in Pro</h2>
         <p class="sub">Powerful on the inside, simple on the outside.</p>
         <div class="grid">
           <div class="card">
-            <div class="ico">🗂️</div><h3>Boards &amp; lists</h3>
-            <p>Organise work the way your team thinks. Drag, drop, done.</p>
+            <div class="ico">🗂️</div><h3>Unlimited boards</h3>
+            <p>No caps. Organise every project the way your team thinks.</p>
           </div>
           <div class="card">
-            <div class="ico">⚡</div><h3>Automations</h3>
+            <div class="ico">⚡</div><h3>Advanced automations</h3>
             <p>Let the routine run itself — assignments, reminders, hand-offs.</p>
           </div>
           <div class="card">
-            <div class="ico">📊</div><h3>Reports</h3>
+            <div class="ico">📊</div><h3>Live reports</h3>
             <p>See progress at a glance with live dashboards and timelines.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cta-band" id="pricing">
+    <section class="price-band" id="pricing">
       <div class="wrap">
-        <h2>Ready to get organised?</h2>
-        <p>Free for up to 5 people. No credit card required.</p>
-        <a href="signup.html" class="btn btn-primary btn-lg">Create your free account</a>
+        <div class="price-card">
+          <span class="tag">MOST POPULAR</span>
+          <h2>TaskFlow Pro</h2>
+          <div class="amount">₹500 <small>/ month</small></div>
+          <ul>
+            <li>Unlimited boards &amp; lists</li>
+            <li>Advanced automations</li>
+            <li>Live reports &amp; dashboards</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="checkout.html" class="btn btn-primary btn-lg" style="display:block;margin-top:20px;">Buy now</a>
+          <p class="note">Secure checkout · Cancel anytime</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <h2>Ready to upgrade?</h2>
+        <p>Join thousands of teams already on TaskFlow Pro.</p>
+        <a href="checkout.html" class="btn btn-primary btn-lg">Buy TaskFlow Pro</a>
       </div>
     </section>
   </main>
@@ -129,7 +162,7 @@
   <footer>
     <div class="wrap foot">
       <div>© 2026 TaskFlow Inc. · A demo site for testing Zephra tracking</div>
-      <div><a href="signup.html">Sign up</a> · <a href="index.html">Home</a></div>
+      <div><a href="checkout.html">Buy Pro</a> · <a href="index.html">Home</a></div>
     </div>
   </footer>
 </body>

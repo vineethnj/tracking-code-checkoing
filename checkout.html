@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — TaskFlow Pro</title>
+
+  <!-- Keep the PURCHASE itself as ONE clean conversion: we count it when the buyer
+       lands on the order-confirmed page (mapped in the Zephra wizard), so we tell
+       the SDK NOT to auto-capture this checkout form submit as a separate event.
+       This flag must be set BEFORE the snippet loads. -->
+  <script>window.AdsGenNoAutoForms = true;</script>
+
+  <!-- ZEPHRA TRACKING SNIPPET (same on every page) -->
+  <script src="https://zephraai.com/sdk.js?cid=cli_Lu6h_2nI1kc&consent=auto" async></script>
+
+  <style>
+    :root { --ink:#0F1923; --teal:#00C4A1; --muted:#5b6b7a; --line:#e7ecf1; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           color: var(--ink); background: #f7f9fb; min-height: 100vh; display: grid; place-items: center; padding: 32px; }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; width: 100%; max-width: 440px;
+            padding: 36px 34px; box-shadow: 0 10px 40px rgba(15,25,35,.06); }
+    .logo { font-weight: 800; font-size: 1.2rem; text-align: center; margin-bottom: 6px; }
+    .logo span { color: var(--teal); }
+    .card h1 { font-size: 1.4rem; text-align: center; letter-spacing: -.02em; margin-bottom: 4px; }
+    .card .sub { text-align: center; color: var(--muted); font-size: .92rem; margin-bottom: 22px; }
+
+    .summary { background: #f2f6f9; border: 1px solid var(--line); border-radius: 11px; padding: 14px 16px;
+               display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .summary .item { font-weight: 600; font-size: .95rem; }
+    .summary .item small { display: block; color: var(--muted); font-weight: 500; font-size: .8rem; }
+    .summary .total { font-weight: 800; font-size: 1.15rem; }
+
+    label { display: block; font-size: .82rem; font-weight: 600; margin: 14px 0 6px; }
+    input { width: 100%; padding: 12px 14px; border: 1px solid #d7dee5; border-radius: 9px; font-size: .95rem;
+            font-family: inherit; }
+    input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px #d8f5ee; }
+    .row { display: flex; gap: 12px; }
+    .row > div { flex: 1; }
+    .btn { width: 100%; margin-top: 22px; border: none; cursor: pointer; font-weight: 700; border-radius: 9px;
+           padding: 13px; font-size: .98rem; background: var(--teal); color: var(--ink); font-family: inherit; }
+    .btn:disabled { opacity: .7; cursor: default; }
+    .foot { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 16px; }
+    .back { display:block; text-align:center; margin-top:18px; color:var(--muted); font-size:.85rem; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">Task<span>Flow</span></div>
+    <h1>Checkout</h1>
+    <p class="sub">You're one step away from TaskFlow Pro.</p>
+
+    <div class="summary">
+      <div class="item">TaskFlow Pro<small>Monthly plan</small></div>
+      <div class="total">₹500</div>
+    </div>
+
+    <form id="checkout-form" onsubmit="return handlePurchase(event)">
+      <label for="name">Full name</label>
+      <input id="name" name="name" type="text" placeholder="Priya Sharma" required />
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@company.com" required />
+
+      <label for="card">Card number</label>
+      <input id="card" name="card" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242"
+             required minlength="12" maxlength="19" />
+
+      <div class="row">
+        <div>
+          <label for="exp">Expiry</label>
+          <input id="exp" name="exp" type="text" placeholder="MM/YY" required maxlength="5" />
+        </div>
+        <div>
+          <label for="cvc">CVC</label>
+          <input id="cvc" name="cvc" type="text" inputmode="numeric" placeholder="123" required minlength="3" maxlength="4" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn" id="payBtn">Pay ₹500</button>
+    </form>
+
+    <p class="foot">🔒 Payments are secure and encrypted.</p>
+    <a class="back" href="index.html">← Back to store</a>
+  </div>
+
+  <script>
+    // Static demo: no real payment is taken. We just simulate the charge and send
+    // the buyer to the order-confirmed page — that page load is what Zephra counts
+    // as the "Purchase" conversion (mapped in the wizard). The card number is NOT
+    // captured or sent anywhere.
+    function handlePurchase(e) {
+      e.preventDefault();
+      var btn = document.getElementById('payBtn');
+      btn.disabled = true;
+      btn.textContent = 'Processing payment…';
+      // Small delay so it feels real; then go to the confirmation page.
+      setTimeout(function () { window.location.href = 'order-confirmed.html'; }, 800);
+      return false;
+    }
+  </script>
+</body>
+</html>
